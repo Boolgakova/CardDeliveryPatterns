@@ -30,7 +30,7 @@ public class DataGenerator {
     public static String generateCity(String locale) {
         // TODO: добавить логику для объявления переменной city и задания её значения, генерацию можно выполнить
         // с помощью Faker, либо используя массив валидных городов и класс Random
-        $("[data-test-id=city] input").setValue("  ");
+        $("[data-test-id=city] input").setValue("ва");
         ElementsCollection cities = $$(".menu-item__control");
         List<String> towns = new ArrayList<>();
         for (SelenideElement element : cities) {
