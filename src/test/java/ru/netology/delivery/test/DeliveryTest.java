@@ -10,14 +10,13 @@ import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 class DeliveryTest {
 
     @BeforeEach
     void setup() {
-        Configuration.headless = true;
+//        Configuration.headless = true;
         open("http://localhost:9999");
     }
 
@@ -44,7 +43,8 @@ class DeliveryTest {
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id=date] input").doubleClick().sendKeys(secondMeetingDate);
         $(By.className("button")).click();
+        $x("//span[contains(text(),'Перепланировать')]").click();
 
-        $("[data-test-id=replan-notification").shouldBe(visible);
+        $("[data-test-id=success-notification").shouldBe(visible);
     }
 }
