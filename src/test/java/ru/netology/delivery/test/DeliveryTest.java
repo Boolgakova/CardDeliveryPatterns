@@ -55,9 +55,9 @@ class DeliveryTest {
     }
 
     @Test
-    @DisplayName("Should failed")
-    void shouldFailed() {
-        var validUser = DataGenerator.Registration.generateUser("ru");
+    @DisplayName("Should check user with name with letter Yo")
+    void shouldCheckNameWithYo() {
+        var validUser = DataGenerator.Registration.generateUserYo("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         var daysToAddForSecondMeeting = 7;
@@ -78,7 +78,7 @@ class DeliveryTest {
         $x("//span[contains(text(),'Перепланировать')]").click();
 
         $(".notification__content")
-                .shouldHave(text("Встреча успешно перепланирована на " + secondMeetingDate))
+                .shouldHave(text("Встреча успешно запланирована на " + secondMeetingDate))
                 .shouldBe(visible);
     }
 }

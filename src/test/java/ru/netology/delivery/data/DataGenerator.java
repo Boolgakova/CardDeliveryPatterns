@@ -40,6 +40,12 @@ public class DataGenerator {
         return name;
     }
 
+    public static String generateNameWithYo(String locale) {
+        Faker faker = new Faker(new Locale(locale));
+        String name = faker.name().fullName() + "ё";
+        return name;
+    }
+
     public static String generatePhone(String locale) {
         Faker faker = new Faker(new Locale(locale));
         String phone = faker.phoneNumber().phoneNumber();
@@ -52,6 +58,11 @@ public class DataGenerator {
 
         public static UserInfo generateUser(String locale) {
             UserInfo user = new UserInfo(generateCity(locale), generateName(locale), generatePhone(locale));
+            return user;
+        }
+
+        public static UserInfo generateUserYo(String locale){
+            UserInfo user = new UserInfo(generateCity(locale), generateNameWithYo(locale), generatePhone(locale));
             return user;
         }
     }
